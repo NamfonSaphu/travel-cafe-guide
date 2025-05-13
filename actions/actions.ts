@@ -1,5 +1,11 @@
 "use server"
 import { profileSchema, validatedWithZod } from "@/utils/schema"
+import { currentUser } from "@clerk/nextjs/server"
+
+const getAuthUser = async () => {
+    const user = await currentUser()
+    console.log(user)
+}
 
 const renderError = (error: unknown): { message: string } => {
     return {
@@ -9,6 +15,7 @@ const renderError = (error: unknown): { message: string } => {
 
 export const createProfileAction = async (prevState: any, formData: FormData) => {
     try {
+        getAuthUser()
         const rawData = Object.fromEntries(formData)
         const validateField = validatedWithZod(profileSchema, rawData)
         console.log(validateField)
