@@ -1,10 +1,16 @@
 "use server"
 import { profileSchema, validatedWithZod } from "@/utils/schema"
-import { currentUser } from "@clerk/nextjs/server"
+import { clerkClient, currentUser } from "@clerk/nextjs/server"
+import db from '@/utils/db'
+import { redirect } from "next/navigation"
 
 const getAuthUser = async () => {
     const user = await currentUser()
-    console.log(user)
+    if (!user) {
+        throw new Error('You must logged!!!')
+    }
+    if (!user.privateMetadata.hasProfile) redirect('/profile/create')
+    return user
 }
 
 const renderError = (error: unknown): { message: string } => {
@@ -15,14 +21,29 @@ const renderError = (error: unknown): { message: string } => {
 
 export const createProfileAction = async (prevState: any, formData: FormData) => {
     try {
-        getAuthUser()
+        const user = await currentUser()
+        if(!user) throw new Error('Please Login!!!')
         const rawData = Object.fromEntries(formData)
         const validateField = validatedWithZod(profileSchema, rawData)
-        console.log(validateField)
-        return { message: 'Create Profile Success!!!' }
+
+        await db.profile.create({
+            data: {
+                clerkId: user.id,
+                email: user.emailAddresses[0].emailAddress,
+                profileImage: user.imageUrl ?? ',',
+                ...validateField
+            }
+        })
+
+        const client = await clerkClient()
+        await client.users.updateUserMetadata(user.id, {
+            privateMetadata: {
+                hasProfile: true
+            }
+        })
+
     } catch (error) {
-        console.log(error)
         return renderError(error)
     }
-
+    redirect('/')
 }
