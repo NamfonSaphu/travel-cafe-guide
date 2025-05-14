@@ -35,7 +35,7 @@ type LocationMarkerProps = {
 
 const MapLandmark = ({ location }: { location?: { lat: number, lng: number } }) => {
   const defaultLocation: Latlng = [13.736717, 100.523186]
-  const [position, setPosition] = useState(null)
+  const [position, setPosition] = useState<Latlng | null>(null)
   console.log(position)
   return (
     <>

@@ -3,6 +3,7 @@ import { SubmitButton } from "@/components/form/Buttons"
 import CategoryInput from "@/components/form/CategoryInput"
 import FormContainer from "@/components/form/FormContainer"
 import FormInput from "@/components/form/FormInput"
+import ImageInput from "@/components/form/ImageInput"
 import ProvincesInput from "@/components/form/ProvincesInput"
 import TextAreaInput from "@/components/form/TextAreaInput"
 import MapLandmark from "@/components/map/MapLandmark"
@@ -22,6 +23,7 @@ const CreateLandmark = async () => {
                         <FormInput name="price" label="Price" type="number" placeholder="Price" />
                         <ProvincesInput />
                     </div>
+                    <ImageInput />
                     <MapLandmark />
                     <SubmitButton text="Create Profile" size='lg' />
                 </FormContainer>
