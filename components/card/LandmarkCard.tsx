@@ -1,17 +1,28 @@
+import { LandmarkCardProps } from "@/utils/types"
 import Image from "next/image"
 
-const LandmarkCard = ({ landmark }) => {
-    const { name, image } = landmark
+const LandmarkCard = ({ landmark }: { landmark: LandmarkCardProps }) => {
+    const { name, image, id, province, lat, lng, category, description, price } = landmark
     return (
         <article className="group relative">
-            <div className="relative h-[300px]">
-                <Image 
-                src = {image}
-                sizes="(max-width:768px) 100vw, 50vw"
-                alt={name}
-                fill
-                className="object-cover"
+            <div className="relative h-[300px] rounded-md mb-2">
+                <Image
+                    src={image}
+                    sizes="(max-width:768px) 100vw, 50vw"
+                    alt={name}
+                    fill
+                    className="object-cover rounded-md group-hover:scale-104 transition-transform duration-300"
                 />
+            </div>
+            <div className="flex justify-between items-center">
+                <h3 className="text-sm font-semibold mt-1">{name.substring(0, 30)}</h3>
+            </div>
+            <p className="text-sm mt-1 text-muted-foreground">
+                {description.substring(0, 40)}
+            </p>
+            <div className="mt-1 items-center flex justify-between">
+                <span className="font-semibold text-sm">{price}</span>
+                <p>{province}</p>
             </div>
         </article>
     )
