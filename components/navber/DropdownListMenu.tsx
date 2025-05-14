@@ -17,7 +17,7 @@ import { SignedIn, SignedOut, SignInButton, SignUpButton } from "@clerk/nextjs";
 const DropdownListMenu = () => {
     return (
         <DropdownMenu>
-            <DropdownMenuTrigger asChild>
+            <DropdownMenuTrigger asChild >
                 <Button variant="outline">
                     <TbAlignCenter />
                     <UserIcon />
