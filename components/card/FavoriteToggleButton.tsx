@@ -1,15 +1,14 @@
-import { LuHeart } from "react-icons/lu";
-import { Button } from "../ui/button";
 import { auth } from '@clerk/nextjs/server'
 import { SignInCardButton } from "../form/Buttons";
+import { fetchFavoriteId } from "@/actions/actions";
+import FavoriteToggleForm from "./FavoriteToggleForm";
 
 const FavoriteToggleButton = async ({ landmarkId }: { landmarkId: string }) => {
     const { userId } = await auth()
     if (!userId) return <SignInCardButton />
+    const favoriteId = await fetchFavoriteId({ landmarkId })
     return (
-        <Button size='icon'>
-            <LuHeart />
-        </Button>
+        <FavoriteToggleForm favoriteId={favoriteId} landmarkId={landmarkId} />
     )
 }
 

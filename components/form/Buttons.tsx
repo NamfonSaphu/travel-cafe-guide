@@ -40,3 +40,19 @@ export const SignInCardButton = () => {
 
     )
 }
+
+export const CardSubmitButton = ({ isFavorite }: { isFavorite: boolean }) => {
+    // console.log('is', isFavorite)
+    const { pending } = useFormStatus()
+    return (
+        <Button type="submit" size='icon' className="text-white">
+            {
+                pending
+                    ? <LoaderCircle className="animate-spin" />
+                    : isFavorite
+                        ? <LuHeart fill="#be123c" stroke="#be123c"/>
+                        : <LuHeart />
+            }
+        </Button>
+    )
+}
