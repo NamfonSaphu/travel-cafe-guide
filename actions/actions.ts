@@ -3,6 +3,7 @@ import { profileSchema, validatedWithZod } from "@/utils/schema"
 import { clerkClient, currentUser } from "@clerk/nextjs/server"
 import db from '@/utils/db'
 import { redirect } from "next/navigation"
+import { promise } from "zod"
 
 const getAuthUser = async () => {
     const user = await currentUser()
@@ -19,12 +20,13 @@ const renderError = (error: unknown): { message: string } => {
     }
 }
 
-export const createProfileAction = async (prevState: any, formData: FormData) => {
+export const createProfileAction = async (prevState: any, formData: FormData): Promise<{ message: string }> => {
     try {
         const user = await currentUser()
-        if(!user) throw new Error('Please Login!!!')
+        if (!user) throw new Error('Please Login!!!')
         const rawData = Object.fromEntries(formData)
         const validateField = validatedWithZod(profileSchema, rawData)
+        console.log(rawData)
 
         await db.profile.create({
             data: {
@@ -47,3 +49,18 @@ export const createProfileAction = async (prevState: any, formData: FormData) =>
     }
     redirect('/')
 }
+
+export const createPLandmarkAction = async (prevState: any, formData: FormData) => {
+    try {
+        const user = await currentUser()
+        if (!user) throw new Error('Please Login!!!')
+        const rawData = Object.fromEntries(formData)
+        // const validateField = validatedWithZod(profileSchema, rawData)
+        console.log("validated", rawData)
+
+        return {message: "Create Landmark Success!!!"}
+    } catch (error) {
+        return renderError(error)
+    }
+
+} 

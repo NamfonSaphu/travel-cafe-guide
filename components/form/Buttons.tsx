@@ -18,7 +18,10 @@ export const SubmitButton = ({ className, size, text }: SubmitButtonProps) => {
         <Button disabled={pending} className={className} size={size} type="submit" >
             {
                 pending
-                    ? <LoaderCircle className="animate-spin" />
+                    ?<>
+                    <LoaderCircle className="animate-spin" />
+                    <span>Please wait...</span>
+                    </> 
                     : <p>{text}</p>
             }
         </Button>
