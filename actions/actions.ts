@@ -1,5 +1,5 @@
 "use server"
-import { imageSchema, profileSchema, validatedWithZod } from "@/utils/schema"
+import { imageSchema, landmarkSchema, profileSchema, validatedWithZod } from "@/utils/schema"
 import { clerkClient, currentUser } from "@clerk/nextjs/server"
 import db from '@/utils/db'
 import { redirect } from "next/navigation"
@@ -57,7 +57,9 @@ export const createPLandmarkAction = async (prevState: any, formData: FormData) 
         const file = formData.get('image') as File
 
         const validatedFile = validatedWithZod(imageSchema, { image: file })
+        const validateField = validatedWithZod(landmarkSchema, rawData)
         console.log("validated", validatedFile)
+        console.log("validated", validateField)
 
         return { message: "Create Landmark Success!!!" }
     } catch (error) {
