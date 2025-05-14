@@ -14,7 +14,7 @@ const CategoryInput = ({ defaultValue }: { defaultValue?: string }) => {
     <div className="mb-2">
       <Label htmlFor={name} className="capitalize mb-1 block">{name}</Label>
       <Select defaultValue={defaultValue || categories[0].label} name={name} required>
-        <SelectTrigger className="w-[180px]">
+        <SelectTrigger className="w-full">
           <SelectValue />
         </SelectTrigger>
         <SelectContent>
