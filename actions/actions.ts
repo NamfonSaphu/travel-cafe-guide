@@ -62,9 +62,24 @@ export const createPLandmarkAction = async (prevState: any, formData: FormData) 
         const fullPath = await uploadFile(validatedFile.image)
         console.log(fullPath)
 
-        return { message: "Create Landmark Success!!!" }
+        await db.landmark.create({
+            data: {
+                ...validateField,
+                image: fullPath,
+                profileId: user.id,
+            },
+        });
     } catch (error) {
         return renderError(error)
     }
+    redirect('/')
+}
 
-} 
+export const fetchLandmarks = async () => {
+    const landmarks = await db.landmark.findMany({
+        orderBy: {
+            createdAt: 'desc'
+        }
+    })
+    return landmarks
+}
