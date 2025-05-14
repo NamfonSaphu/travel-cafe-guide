@@ -1,9 +1,11 @@
+import { fetchFavorites } from "@/actions/actions"
+import LandmarkList from "../home/LandmarkList"
 
-const FavoritesPage = () => {
+const FavoritesPage = async () => {
+  const favorites = await fetchFavorites()
+  console.log(favorites)
   return (
-    <div>
-      
-    </div>
+    <LandmarkList landmarks={favorites} />
   )
 }
 
