@@ -39,7 +39,6 @@ const MapLandmark = ({ location }: { location?: { lat: number, lng: number } }) 
   console.log(position)
   return (
     <>
-      <h1 className='mt-4 font-semibold'>Where are you</h1>
       <input type='hidden' name="lat" value={position ? position[0] : ''} />
       <input type='hidden' name="lng" value={position ? position[1] : ''} />
       <MapContainer

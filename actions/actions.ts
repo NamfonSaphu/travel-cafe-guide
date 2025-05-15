@@ -94,13 +94,13 @@ export const fetchLandmarks = async ({ search = '', category }: { search?: strin
 }
 
 export const fetchLandmarksHero = async () => {
-  const landmarks = await db.landmark.findMany({
-    orderBy: {
-      createdAt: "desc",
-    },
-    take: 5,
-  });
-  return landmarks;
+    const landmarks = await db.landmark.findMany({
+        orderBy: {
+            createdAt: "desc",
+        },
+        take: 5,
+    });
+    return landmarks;
 };
 
 export const fetchFavoriteId = async ({ landmarkId }: { landmarkId: string }) => {
@@ -171,4 +171,15 @@ export const fetchFavorites = async () => {
     })
 
     return favorites.map((favorite) => favorite.landmark)
+}
+
+export const fetchLandmarkDetail = async ({ id }: { id: string }) => {
+    return db.landmark.findFirst({
+        where: {
+            id: id
+        },
+        include: {
+            profile: true
+        }
+    })
 }

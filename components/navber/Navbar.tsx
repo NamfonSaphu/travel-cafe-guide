@@ -5,14 +5,19 @@ import DropdownListMenu from "./DropdownListMenu"
 
 const Navbar = () => {
     return (
-        <div className="container flex justify-between flex-col sm:flex-row sm:items-center gap-4 py-4">
-            <Logo />
-            <Search />
-            <div className="flex gap-4">
-                <ThemeToggle />
-                <DropdownListMenu />
-            </div>
-        </div>
+<div className="container flex items-center justify-between gap-4 py-4 overflow-hidden">
+  <Logo />
+  
+  <div className="flex-1 min-w-0">
+    <Search />
+  </div>
+
+  <div className="flex gap-4 flex-shrink-0">
+    <ThemeToggle />
+    <DropdownListMenu />
+  </div>
+</div>
+
     )
 }
 

@@ -20,11 +20,13 @@ const CreateLandmark = async () => {
                     </div>
                     <TextAreaInput name="description" />
                     <div className="grid md:grid-cols-2 gap-4 mt-4">
-                        <FormInput name="price" label="Price" type="number" placeholder="Price"/>
+                        <FormInput name="price" label="Price" type="number" placeholder="Price" />
                         <ProvincesInput />
                     </div>
                     <ImageInput />
-                    <MapLandmark />
+                    <div className="mt-4">
+                        <MapLandmark />
+                    </div>
                     <SubmitButton text="Create Profile" size='lg' />
                 </FormContainer>
             </div>

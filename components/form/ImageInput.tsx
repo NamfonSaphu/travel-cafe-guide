@@ -5,8 +5,8 @@ const ImageInput = () => {
     const name = 'image'
     return (
         <div className="capitalize">
-            <Label>{name}</Label>
-            <Input id={name} name={name} type="file" required accept="image/*"></Input>
+            <Label className="mb-2 block">{name}</Label>
+            <Input id={name} name={name} type="file" required accept="image/*" />
         </div>
     )
 }
