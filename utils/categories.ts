@@ -11,24 +11,11 @@ import {
 export const categories = [
   {
     label: "Tourist",
-  icon: FaGlobeAmericas,
-
-  },
-  {
-    label: "house",
-    icon: FaHome,
+    icon: FaGlobeAmericas,
   },
   {
     label: "hotel",
     icon: FaHotel,
-  },
-  {
-    label: "hostel",
-    icon: FaBed,
-  },
-  {
-    label: "mountain",
-    icon: FaMountain,
   },
   {
     label: "store",
