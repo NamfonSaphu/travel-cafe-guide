@@ -11,7 +11,7 @@ import MapLandmark from "@/components/map/MapLandmark"
 const CreateLandmark = async () => {
     return (
         <section>
-            <h1 className="text-2xl font-semibold mb-8 capitalize">Create Landmark</h1>
+            <h1 className="text-2xl font-semibold mb-8 capitalize">Create</h1>
             <div>
                 <FormContainer action={createPLandmarkAction}>
                     <div className="grid md:grid-cols-2 gap-4 mt-4">
