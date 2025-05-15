@@ -35,3 +35,4 @@ const CreateLandmark = async () => {
 }
 
 export default CreateLandmark
+
