@@ -5,16 +5,12 @@ import Navbar from "@/components/navber/Navbar";
 import { ThemeProvider } from "next-themes";
 import { ClerkProvider } from "@clerk/nextjs";
 import { Toaster } from "@/components/ui/sonner"
+import { Josefin_Sans } from 'next/font/google'
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
+const josefin = Josefin_Sans({
+  weight: '400',
+  subsets: ['latin']
+})
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -30,7 +26,7 @@ export default function RootLayout({
     <ClerkProvider>
       <html lang="en" suppressHydrationWarning>
         <body
-          className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+          className={`${josefin.className} antialiased`}
         >
           <ThemeProvider attribute="class" enableSystem defaultTheme="system">
             <Navbar />
