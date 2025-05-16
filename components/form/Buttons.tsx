@@ -14,21 +14,26 @@ type SubmitButtonProps = {
 }
 
 export const SubmitButton = ({ className, size, text }: SubmitButtonProps) => {
-    //load
     const { pending } = useFormStatus()
     return (
-        <Button disabled={pending} className={className} size={size} type="submit" >
+        <Button
+            disabled={pending}
+            className={`${className} bg-gray-950 text-white hover:bg-gray-900`}
+            size={size}
+            type="submit"
+        >
             {
                 pending
                     ? <>
                         <LoaderCircle className="animate-spin" />
-                        <span>Please wait...</span>
+                        <span className="font-semibold">Please wait...</span>
                     </>
-                    : <p>{text}</p>
+                    : <p className="font-semibold">{text}</p>
             }
         </Button>
     )
 }
+
 
 export const SignInCardButton = () => {
     return (

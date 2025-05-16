@@ -25,7 +25,7 @@ const ProvinceInput = ({ defaultValue }: { defaultValue?: string }) => {
         <SelectTrigger>
           <SelectValue />
         </SelectTrigger>
-        <SelectContent>
+        <SelectContent  className="bg-white shadow-lg rounded-md p-2">
           {provinces.map((item) => {
             return (
               <SelectItem key={item.PROVINCE_ID} value={item.PROVINCE_NAME}>

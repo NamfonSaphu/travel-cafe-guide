@@ -16,14 +16,14 @@ import { SignedIn, SignedOut, SignInButton, SignUpButton } from "@clerk/nextjs";
 
 const DropdownListMenu = () => {
     return (
-        <DropdownMenu>
+        <DropdownMenu >
             <DropdownMenuTrigger asChild >
                 <Button variant="outline">
                     <TbAlignCenter />
                     <UserIcon />
                 </Button>
             </DropdownMenuTrigger>
-            <DropdownMenuContent>
+            <DropdownMenuContent className="bg-white shadow-lg rounded-md p-2">
                 <DropdownMenuLabel>My Account</DropdownMenuLabel>
                 <DropdownMenuSeparator />
 

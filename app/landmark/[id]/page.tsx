@@ -16,15 +16,17 @@ const LandmarkDetail = async ({ params }: { params: { id: string } }) => {
             <div className="mb-4">
                 <Breadcrumbs name={landmark.name} />
             </div>
-
             <div className="bg-white shadow-md rounded-lg p-6 mb-6">
+                <ImageContainer mainImage={landmark.image} name={landmark.name} />
                 <header className="flex justify-between mt-4 items-center">
                     <h1 className="text-2xl capitalize font-bold">{landmark.name}</h1>
                     <div className="flex items-center gap-x-4">
                         <FavoriteToggleButton landmarkId={landmark.id} />
                     </div>
                 </header>
-                <ImageContainer mainImage={landmark.image} name={landmark.name} />
+                <div>
+                    <p className="text-sm text-gray-500 mt-1">{landmark.province}</p>
+                </div>
                 <section>
                     <div>
                         <Description description={landmark.description} />
@@ -35,6 +37,7 @@ const LandmarkDetail = async ({ params }: { params: { id: string } }) => {
                 <MapLandmark location={{ lat: landmark.lat, lng: landmark.lng }} />
             </div>
         </section>
+
 
     )
 }
