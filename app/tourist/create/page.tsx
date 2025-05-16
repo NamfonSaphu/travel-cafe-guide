@@ -13,9 +13,10 @@ const CreateLandmark = async () => {
         <section>
             <h1 className="text-2xl font-semibold mb-8 capitalize">Create</h1>
             <div>
+                <p></p>
                 <FormContainer action={createPLandmarkAction}>
                     <div className="grid md:grid-cols-2 gap-4 mt-4">
-                        <FormInput name="name" label="Landmark Name" type="text" placeholder="Landmark Name" />
+                        <FormInput name="name" label="Landmark Name" type="text" placeholder="Name" />
                         <CategoryInput />
                     </div>
                     <TextAreaInput name="description" />

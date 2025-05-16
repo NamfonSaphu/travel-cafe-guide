@@ -1,15 +1,12 @@
 import { Button } from "@/components/ui/button"
 import Link from "next/link"
 
-const EmptyList = ({ heading = 'No items', btnText = 'Back home' }: { heading?: string, btnText?: string }) => {
+const EmptyList = ({ heading = 'No items' }: { heading?: string }) => {
     return (
-        <div>
-            <h1 className="text-xl font-bold">{heading}</h1>
-            <Button className="capitalize" asChild>
-                <Link href='/'>
-                    {btnText}
-                </Link>
-            </Button>
+        <div className="flex items-center justify-center py-20">
+            <div className="text-center">
+                <h1 className="text-lg font-light mb-4">{heading}</h1>
+            </div>
         </div>
     )
 }

@@ -1,21 +1,17 @@
 import {
-  FaHome,
-  FaHotel,
-  FaBed,
-  FaMountain,
   FaStore,
   FaUtensils,
-  FaGlobeAmericas
+  FaCoffee
 } from "react-icons/fa";
 
 export const categories = [
   {
-    label: "Tourist",
-    icon: FaGlobeAmericas,
+    label: "Cafe",
+    icon: FaCoffee,
   },
   {
-    label: "hotel",
-    icon: FaHotel,
+    label: "Market",
+    icon: FaStore,
   },
   {
     label: "store",

@@ -5,9 +5,9 @@ import Navbar from "@/components/navber/Navbar";
 import { ThemeProvider } from "next-themes";
 import { ClerkProvider } from "@clerk/nextjs";
 import { Toaster } from "@/components/ui/sonner"
-import { Josefin_Sans } from 'next/font/google'
+import { Questrial } from 'next/font/google'
 
-const josefin = Josefin_Sans({
+const questrial = Questrial({
   weight: '400',
   subsets: ['latin']
 })
@@ -26,7 +26,7 @@ export default function RootLayout({
     <ClerkProvider>
       <html lang="en" suppressHydrationWarning>
         <body
-          className={`${josefin.className} antialiased`}
+          className={`${questrial.className} antialiased`}
         >
           <ThemeProvider attribute="class" enableSystem defaultTheme="system">
             <Navbar />

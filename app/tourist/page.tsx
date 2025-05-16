@@ -1,7 +1,6 @@
 const HotelPage = () => {
   return (
     <div>
-      
     </div>
   )
 }
