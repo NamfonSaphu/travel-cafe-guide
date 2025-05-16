@@ -6,7 +6,7 @@ import { FaMapMarkerAlt } from "react-icons/fa"
 import { Badge } from "../ui/badge"
 
 const LandmarkCard = ({ landmark }: { landmark: LandmarkCardProps }) => {
-    const { name, image, province, description, price, id } = landmark
+    const { name, image, description, price, id } = landmark
     return (
         <article className="group relative my-6">
             <Link href={`/landmark/${id}`}>
