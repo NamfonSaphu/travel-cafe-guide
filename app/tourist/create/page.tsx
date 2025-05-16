@@ -10,32 +10,34 @@ import MapLandmark from "@/components/map/MapLandmark"
 
 const CreateLandmark = async () => {
     return (
-
-        <div className="bg-white shadow-md rounded-lg p-6 mb-6">
-            <section>
-                <h1 className="text-2xl font-semibold mb-8 capitalize">Create</h1>
-                <div>
-                    <FormContainer action={createPLandmarkAction}>
-                        <div className="grid md:grid-cols-2 gap-4 mt-4">
-                            <FormInput name="name" label="Name" type="text" placeholder="Name" />
-                            <CategoryInput />
-                        </div>
-                        <TextAreaInput name="description" />
-                        <div className="grid md:grid-cols-2 gap-4 mt-4">
-                            <FormInput name="price" label="Price" type="number" placeholder="Price" />
-                            <ProvincesInput />
-                        </div>
-                        <ImageInput />
-                        <div className="mt-4">
-                            <MapLandmark />
-                        </div>
-                        <SubmitButton text="Create Profile" size='lg' />
-                    </FormContainer>
-                </div>
-            </section>
-        </div>
+        <section>
+            <div className="flex items-center gap-2 mb-6 mt-6">
+                <h1 className="text-2xl font-bold text-slate-800">Create Landmark</h1>
+            </div>
+            <p className="text-slate-600 mb-8 max-w-2xl">
+                Share your favorite landmark with the community. Fill in the details below to create a new landmark profile.
+            </p>
+            <div className="bg-white shadow-md rounded-lg p-6 mb-6">
+                <FormContainer action={createPLandmarkAction}>
+                    <div className="grid md:grid-cols-2 gap-4 mt-4">
+                        <FormInput name="name" label="Landmark Name" type="text" placeholder="e.g., Eiffel Tower" />
+                        <CategoryInput />
+                    </div>
+                    <TextAreaInput name="description" />
+                    <div className="grid md:grid-cols-2 gap-4 mt-4">
+                        <FormInput name="price" label="Price" type="number" placeholder="Price" />
+                        <ProvincesInput />
+                    </div>
+                    <ImageInput />
+                    <div className="mt-4">
+                        <h1 className="text-xl font-bold text-slate-800 mb-2">Location</h1>
+                        <MapLandmark />
+                    </div>
+                    <SubmitButton text="Create" size='lg' />
+                </FormContainer>
+            </div>
+        </section>
     )
 }
 
 export default CreateLandmark
-
