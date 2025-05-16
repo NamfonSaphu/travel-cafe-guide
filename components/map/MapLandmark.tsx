@@ -62,7 +62,6 @@ const MapLandmark = ({ location }: { location?: { lat: number, lng: number } }) 
 
         <LocationMarker position={position} setPosition={setPosition} />
       </MapContainer>
-<p></p>
     </>
   )
 }
