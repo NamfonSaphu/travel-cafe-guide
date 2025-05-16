@@ -1,4 +1,3 @@
-// rafce
 import { categories } from "@/utils/categories";
 import Link from "next/link";
 const CategoriesList = ({
@@ -22,7 +21,7 @@ const CategoriesList = ({
             >
               <article className={`p-3 flex gap-2
               justify-center hover:text-primary hover:scale-110
-              hover:duration-300
+              hover:duration-300 items-center
               ${isActive ? 'text-primary' : ''}`}>
                 <item.icon />
                 <p>{item.label}</p>

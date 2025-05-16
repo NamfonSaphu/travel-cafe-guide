@@ -4,6 +4,7 @@ import Breadcrumbs from "@/components/landmark/Breadcrumb"
 import Description from "@/components/landmark/Description"
 import ImageContainer from "@/components/landmark/ImageContainer"
 import MapLandmark from "@/components/map/MapLandmark"
+import { FaMapMarkerAlt } from 'react-icons/fa';
 
 import { redirect } from "next/navigation"
 
@@ -13,19 +14,22 @@ const LandmarkDetail = async ({ params }: { params: { id: string } }) => {
     if (!landmark) redirect('/')
     return (
         <section>
-            <div className="mb-4">
-                <Breadcrumbs name={landmark.name} />
-            </div>
             <div className="bg-white shadow-md rounded-lg p-6 mb-6">
+                <Breadcrumbs name={landmark.name} />
+
                 <ImageContainer mainImage={landmark.image} name={landmark.name} />
                 <header className="flex justify-between mt-4 items-center">
-                    <h1 className="text-2xl capitalize font-bold">{landmark.name}</h1>
+                    <h1 className="text-xl capitalize font-bold">{landmark.name}</h1>
                     <div className="flex items-center gap-x-4">
                         <FavoriteToggleButton landmarkId={landmark.id} />
                     </div>
                 </header>
-                <div>
-                    <p className="text-sm text-gray-500 mt-1">{landmark.province}</p>
+                <div className="flex items-center gap-2 mt-2">
+
+                </div>
+                <div className="flex items-center gap-1 mt-1">
+                    <FaMapMarkerAlt className="text-xs text-gray-500" />
+                    <p className="text-xs text-gray-500">{landmark.province}</p>
                 </div>
                 <section>
                     <div>
@@ -33,8 +37,11 @@ const LandmarkDetail = async ({ params }: { params: { id: string } }) => {
                     </div>
                 </section>
             </div>
-            <div className="mt-6">
-                <MapLandmark location={{ lat: landmark.lat, lng: landmark.lng }} />
+            <div className="my-6">
+                <h1 className="text-xl capitalize font-bold">Location</h1>
+                <div className="mt-4">
+                    <MapLandmark location={{ lat: landmark.lat, lng: landmark.lng }} />
+                </div>
             </div>
         </section>
 

@@ -10,6 +10,7 @@ import MapLandmark from "@/components/map/MapLandmark"
 
 const CreateLandmark = async () => {
     return (
+
         <div className="bg-white shadow-md rounded-lg p-6 mb-6">
             <section>
                 <h1 className="text-2xl font-semibold mb-8 capitalize">Create</h1>
