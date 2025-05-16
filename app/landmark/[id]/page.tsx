@@ -13,21 +13,29 @@ const LandmarkDetail = async ({ params }: { params: { id: string } }) => {
     if (!landmark) redirect('/')
     return (
         <section>
-            <Breadcrumbs name={landmark.name} />
-            <header className="flex justify-between mt-4 items-center">
-                <h1 className="text-2xl capitalize font-bold">{landmark.name}</h1>
-                <div className="flex items-center gap-x-4">
-                    <FavoriteToggleButton landmarkId={landmark.id} />
-                </div>
-            </header>
-            <ImageContainer mainImage={landmark.image} name={landmark.name} />
-            <section>
-                <div>
-                    <Description description={landmark.description} />
-                    <MapLandmark location={{ lat: landmark.lat, lng: landmark.lng }} />
-                </div>
-            </section>
+            <div className="mb-4">
+                <Breadcrumbs name={landmark.name} />
+            </div>
+
+            <div className="bg-white shadow-md rounded-lg p-6 mb-6">
+                <header className="flex justify-between mt-4 items-center">
+                    <h1 className="text-2xl capitalize font-bold">{landmark.name}</h1>
+                    <div className="flex items-center gap-x-4">
+                        <FavoriteToggleButton landmarkId={landmark.id} />
+                    </div>
+                </header>
+                <ImageContainer mainImage={landmark.image} name={landmark.name} />
+                <section>
+                    <div>
+                        <Description description={landmark.description} />
+                    </div>
+                </section>
+            </div>
+            <div className="mt-6">
+                <MapLandmark location={{ lat: landmark.lat, lng: landmark.lng }} />
+            </div>
         </section>
+
     )
 }
 

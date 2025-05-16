@@ -28,13 +28,11 @@ export default function RootLayout({
         <body
           className={`${questrial.className} antialiased`}
         >
-          <ThemeProvider attribute="class" enableSystem defaultTheme="system">
             <Navbar />
             <main className="container">
               {children}
             </main>
             <Toaster />
-          </ThemeProvider>
         </body>
       </html>
     </ClerkProvider>

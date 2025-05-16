@@ -1,6 +1,3 @@
-import { Button } from "@/components/ui/button"
-import Link from "next/link"
-
 const EmptyList = ({ heading = 'No items' }: { heading?: string }) => {
     return (
         <div className="flex items-center justify-center py-20">

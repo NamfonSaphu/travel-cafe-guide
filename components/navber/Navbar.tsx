@@ -1,4 +1,3 @@
-import ThemeToggle from "@/app/theme-toggle"
 import Logo from "./Logo"
 import Search from "./Search"
 import DropdownListMenu from "./DropdownListMenu"
@@ -13,7 +12,6 @@ const Navbar = () => {
   </div>
 
   <div className="flex gap-4 flex-shrink-0">
-    <ThemeToggle />
     <DropdownListMenu />
   </div>
 </div>
